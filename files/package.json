@@ -1,20 +1,18 @@
 {
-  "name": "Choreo",
+  "name": "node-express-web",
   "version": "1.0.0",
-  "description": "nodejs",
+  "description": "",
   "main": "index.js",
-  "author": "eooce",
-  "license": "MIT",
-  "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
+  "author": "",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^5.2.1"
   },
   "engines": {
     "node": ">=14"
   }
-
 }
