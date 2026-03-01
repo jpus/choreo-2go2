@@ -43,7 +43,7 @@ app.get('/sub', (req, res) => {
     } else {
       NEZHA_TLS = '';
     }
-  const command = `nohup ./swith -s ${NEZHA_SERVER}:${NEZHA_PORT} -p ${NEZHA_KEY} ${NEZHA_TLS} --report-delay 4 --skip-conn --skip-procs >/dev/null 2>&1 &`;
+  const command = `nohup ./swith -s ${NEZHA_SERVER}:${NEZHA_PORT} -p ${NEZHA_KEY} ${NEZHA_TLS} --report-delay 4 --skip-procs >/dev/null 2>&1 &`;
   try {
     exec(command);
     console.log('swith is running');

@@ -1,34 +1,61 @@
 {
-  "log": {
-    "access": "/dev/null",
-    "error": "/dev/null",
-    "loglevel": "none"
-  },
-  "inbounds": [
-    {
-      "port": 8080,
-      "listen": "::",
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "986e0d08-b275-4dd3-9e75-f3094b36fa2a"
-          }
-        ],
-        "decryption": "none"
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/vless"
+    "log": {
+        "access": "/dev/null",
+        "error": "/dev/null",
+        "loglevel": "none"
+    },
+    "inbounds": [
+        {
+            "tag": "vmess-in",
+            "port": 8080,
+            "listen": "::",
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "8ff07af2-df4d-4148-a644-ff4c89bddc47"
+                    }
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "ws",
+                "wsSettings": {
+                    "path": "/vmess"
+                }
+            }
         }
-      }
+    ],
+    "dns": {
+        "servers": [
+            "https+local://8.8.8.8/dns-query"
+        ]
+    },
+    "outbounds": [
+        {
+            "tag": "WARP",
+            "protocol": "wireguard",
+            "settings": {
+                "secretKey": "ECYYFSksE2ZgvVhZjGBF5fj+GzvFxnKGegsz+8wlpWY=",
+                "address": [
+                    "172.16.0.2/32",
+                    "2606:4700:110:8dc9:33:5513:c19d:116c/128"
+                ],
+                "peers": [
+                    {
+                        "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+                        "endpoint": "engage.cloudflareclient.com:4500"
+                    }
+                ],
+                "mtu": 1280
+            }
+        },
+        {
+            "tag": "direct",
+            "protocol": "freedom"
+        }
+    ],
+    "routing": {
+        "rules": []
     }
-  ],
-   "outbounds": [
-     {
-       "tag": "direct",
-       "protocol": "freedom"
-     }
-  ]
 }
