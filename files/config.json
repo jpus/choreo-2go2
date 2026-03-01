@@ -6,10 +6,10 @@
     },
     "inbounds": [
         {
-            "tag": "vmess-in",
+            "tag": "vless-in",
             "port": 8080,
             "listen": "::",
-            "protocol": "vmess",
+            "protocol": "vless",
             "settings": {
                 "clients": [
                     {
@@ -21,7 +21,7 @@
             "streamSettings": {
                 "network": "ws",
                 "wsSettings": {
-                    "path": "/vmess"
+                    "path": "/vless"
                 }
             }
         }
